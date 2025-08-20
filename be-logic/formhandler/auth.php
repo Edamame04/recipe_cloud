@@ -114,15 +114,17 @@ function registerUser($pdo): void{
     }
 
     // If validation passes, hash password and insert user
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT); 
+
+    //generating Gravatar hash
+    $gravatarHash = md5(strtolower(trim($email)));
 
     // Insert user into the database
-    $stmt = $pdo->prepare("INSERT INTO users (username, password_hash, email) VALUES (?, ?, ?)");
+    $stmt = $pdo->prepare("INSERT INTO users (username, password_hash, profile_image) VALUES (?, ?, ?)");
     try {
-        if ($stmt->execute([$username, $hashedPassword, $email])) { // If insert is successful
+        if ($stmt->execute([$username, $hashedPassword, $gravatarHash])) { // If insert is successful
             // Clear any previous errors from session
-            if (isset($_SESSION['errors']))
-                unset($_SESSION['errors']);
+            if (isset($_SESSION['errors'])) unset($_SESSION['errors']);
             $_SESSION['username'] = $username; // Set username in session
             //$_SESSION['response_code'] = 201; // Created - not needed here, as we redirect to profile page
             header('Location: ../../profile'); // Redirect to profile page

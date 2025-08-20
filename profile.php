@@ -63,26 +63,34 @@ try {
     <div class="profile-container">
         <div class="profile-information">
             <div class="profile-header">
-                <div>
-                    <h1><?php echo htmlspecialchars($userProfile['first_name'] . ' ' . $userProfile['last_name']); ?></h1>
-                    <p class="username <?php echo ($userProfile['first_name'] ? '' : 'no-name'); ?>">@<?php echo htmlspecialchars($userProfile['username']); ?></p>
-                    <p class="joined-date">Joined <?php echo htmlspecialchars($userProfile['joined_date']); ?></p>
+                <?php if ($userProfile['has_gravatar']): ?>
+                    <div class="profile-image-container" onclick="window.open('https://gravatar.com/profile/avatars', '_blank')">
+                        <img src="https://www.gravatar.com/avatar/<?php echo htmlspecialchars($userProfile['profile_image']); ?>?s=72" alt="Profile Image" width="72" height="72" class="profile-image">
+                        <svg class="pencil-overlay" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+                        </svg>
+                    </div>
+                <?php endif; ?>
+                <div class="profile-details">
+                    <div>
+                        <h1><?php echo htmlspecialchars($userProfile['first_name'] . ' ' . $userProfile['last_name']); ?></h1>
+                        <p class="username <?php echo ($userProfile['first_name'] ? '' : 'no-name'); ?>">@<?php echo htmlspecialchars($userProfile['username']); ?></p>
+                        <p class="joined-date">Joined <?php echo htmlspecialchars($userProfile['joined_date']); ?></p>
+                        <?php if (!empty($userProfile['bio'])): ?>
+                            <div class="profile-bio">
+                                <p><?php echo htmlspecialchars($userProfile['bio']); ?></p>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                    <button class="secondary-button icon-button" onclick="window.location.href='settings'">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                        Settings
+                    </button>
                 </div>
-                <button class="secondary-button icon-button" onclick="window.location.href='settings'">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
-                        <circle cx="12" cy="12" r="3"></circle>
-                    </svg>
-                    Settings
-                </button>
             </div>
-
-            <?php if (!empty($userProfile['bio'])): ?>
-                <div class="profile-bio">
-                    <p><?php echo htmlspecialchars($userProfile['bio']); ?></p>
-                </div>
-            <?php endif; ?>
-
             <div class="profile-stats">
                 <div>
                     <h3><?php echo $userProfile['recipe_count']; ?></h3>
@@ -130,7 +138,7 @@ try {
             <?php endif; ?>
         </div>
 
-        <div id="tab-favorites" class="tab">            
+        <div id="tab-favorites" class="tab">
             <div class="recipes-grid">
                 <?php
                 if (!empty($favoriteRecipes)) {

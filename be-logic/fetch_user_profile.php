@@ -47,6 +47,9 @@ function fetchUserProfile($username): array|null {
         $joinedDate = new DateTime($user['created_at']);
         $formattedJoinedDate = $joinedDate->format('F Y'); // e.g., "January 2025"
         
+        // Check if Gravatar actually exists
+        $has_gravatar = !empty($user['profile_image']) && checkGravatarExists($user['profile_image']);
+        
         return [
             'first_name' => $user['first_name'],
             'last_name' => $user['last_name'],
@@ -54,6 +57,7 @@ function fetchUserProfile($username): array|null {
             'email' => $user['email'],
             'bio' => $user['bio'],
             'profile_image' => $user['profile_image'],
+            'has_gravatar' => $has_gravatar,
             'joined_date' => $formattedJoinedDate,
             'recipe_count' => $recipeCount,
             'favorites_count' => $favoritesCount,
@@ -65,4 +69,13 @@ function fetchUserProfile($username): array|null {
         error_log("Error fetching user profile: " . $e->getMessage());
         return null;
     }
+}
+
+function checkGravatarExists($email_hash): bool {
+    // Check if Gravatar exists by requesting the image with a 404 parameter
+    // If Gravatar exists, it returns the image, if not, it returns 404
+    $gravatar_url = "https://www.gravatar.com/avatar/" . $email_hash . "?d=404&s=1";
+    
+    $headers = @get_headers($gravatar_url);
+    return $headers && strpos($headers[0], '200') !== false;
 }

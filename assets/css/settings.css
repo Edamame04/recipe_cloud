@@ -54,6 +54,33 @@ hr {
     color: var(--secondary-text-color);
 }
 
+/*avatar section*/
+.gravatar-status {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+}
+
+.gravatar-status img {
+    border-radius: 100%;
+}
+
+.gravatar-status div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.gravatar-status div p {
+    margin-top: 0px !important;
+    margin-bottom: 0.4rem !important;
+    font-size: 0.875rem;
+}
+
+.gravatar-status div button {
+    width: fit-content;
+}
+
 /*forms*/
 input,
 textarea {
@@ -191,6 +218,16 @@ textarea {
         width: 100%;
         margin-top: 0.5rem;
     }
+
+    .gravatar-status div button {
+        width: 100%;
+    }
+
+
+    .gravatar-status div {
+        flex-grow: 1;
+    }
+
 }
 
 @media (max-width: 500px) {
@@ -206,5 +243,4 @@ textarea {
         width: 100%;
         margin-top: 0.5rem;
     }
-
 }

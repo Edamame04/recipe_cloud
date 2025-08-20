@@ -91,6 +91,36 @@ if (!$userProfile) {
                 </button>
             </form>
         </div>
+        <div class="section" id="gravatar-section">
+            <h2>Profile Avatar</h2>
+            <p>Your profile picture is powered by Gravatar, a globally recognized avatar service</p>
+            <?php if ($userProfile['has_gravatar']): ?>
+                <div class="gravatar-status">
+                    <img src="https://www.gravatar.com/avatar/<?php echo htmlspecialchars($userProfile['profile_image']); ?>?s=72" alt="Your Gravatar" width="72" height="72" class="profile-image">
+                    <div>
+                        <p>You have a Gravatar associated with your email address</p>
+                        <button onclick="window.open('https://gravatar.com/profile/avatars', '_blank')" class="icon-button secondary-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+                            </svg>
+                            Change Avatar
+                        </button>
+                    </div>
+                </div>
+            <?php else: ?>
+                <div class="gravatar-status">
+                    <div>
+                        <p>No Gravatar is associated with your email address (<?php echo htmlspecialchars($userProfile['email']); ?>)</p>
+                        <button onclick="window.open('https://gravatar.com', '_blank')" class="icon-button secondary-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                            </svg>
+                            Create a Gravatar
+                        </button>
+                    </div>
+                </div>
+            <?php endif; ?>
+        </div>
         <div class="section" id="password-section">
             <h2>Update Password</h2>
             <p>Update your password to keep your account secure</p>

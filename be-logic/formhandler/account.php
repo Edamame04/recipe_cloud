@@ -89,6 +89,10 @@ function updateProfile($pdo)
         if ($email !== $currentData['email']) {
             $updateFields[] = "email = ?";
             $params[] = $email;
+            // Update gravatar hash when email changes
+            $gravatarHash = md5(strtolower(trim($email)));
+            $updateFields[] = "profile_image = ?";
+            $params[] = $gravatarHash;
         }
 
         if ($bio !== $currentData['bio']) {
