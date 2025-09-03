@@ -456,7 +456,7 @@ function isSelected($key, $value): string
                 <div class="navigation-buttons">
                     <button type="button" onclick="openTab('tab-instructions', 'tab-header-instructions')" class="secondary-button">Back: Instructions</button>
                     <div class="button-group">
-                        <button type="button" class="secondary-button warning-button" onclick="confirmDeleteRecipe(<?php echo $recipe_id; ?>)">Delete Recipe</button>
+                        <button type="button" class="secondary-button delete-warning-button" onclick="confirmDeleteRecipe(<?php echo $recipe_id; ?>)">Delete Recipe</button>
                         <button type="submit" class="primary">Update Recipe</button>
                     </div>
                 </div>

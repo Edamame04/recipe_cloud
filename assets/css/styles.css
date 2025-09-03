@@ -21,6 +21,7 @@
     --error-background: #ec0c0c1c;
     --success-color: #0d5a29;
     --warning-color: orange;
+    --delete-warning-color: #ec0c0c;
     --max-width: 1400px;
 }
 

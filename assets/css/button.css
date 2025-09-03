@@ -46,12 +46,12 @@ button:disabled {
     border: 1px solid var(--border-color);
 }
 
-.warning-button {
-    border-color: var(--warning-color);
+.delete-warning-button {
+    border-color: var(--delete-warning-color);
 }
 
-.warning-button:hover {
-    background-color: var(--warning-color);
+.delete-warning-button:hover {
+    background-color: var(--delete-warning-color);
     color: var(--background-color);
 }
 

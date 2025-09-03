@@ -398,7 +398,7 @@ include_once 'assets/includes/header.php'; //load header
                             <a href="edit_recipe?id=<?php echo htmlspecialchars($recipe['id']); ?>" class="imitate-secondary-button">
                                 Edit Recipe
                             </a>
-                            <button class="secondary-button warning-button" id="delete-recipe-btn">
+                            <button class="secondary-button delete-warning-button" id="delete-recipe-btn">
                                 Delete Recipe
                             </button>
                         </div>
