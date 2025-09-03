@@ -59,7 +59,7 @@ try {
 
     // Fetch individual ratings with user info
     $stmt = $pdo->prepare("
-        SELECT r.*, u.username
+        SELECT r.*, u.username, u.profile_image
         FROM ratings r 
         LEFT JOIN users u ON r.user_id = u.username 
         WHERE r.recipe_id = ? 
@@ -67,6 +67,11 @@ try {
     ");
     $stmt->execute([$recipe_id]);
     $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Check if each reviewer has a valid Gravatar
+    foreach ($reviews as &$review) {
+        $review['has_gravatar'] = !empty($review['profile_image']) && checkGravatarExists($review['profile_image']);
+    }
 
     // Check if current user has already reviewed this recipe and fetch their review
     $user_review = null;
@@ -260,37 +265,44 @@ include_once 'assets/includes/header.php'; //load header
                                     <div>
                                         <?php foreach ($reviews as $review): ?>
                                             <div class="review">
-                                                <div>
-                                                    <p class="review-username"><?php echo htmlspecialchars($review['username']); ?></p>
-                                                    <div class="review-meta">
-                                                        <div class="star-rating">
-                                                            <?php for ($i = 1; $i <= 5; $i++): ?>
-                                                                <span style="color: <?php echo $i <= $review['rating'] ? '#ffd700' : '#ddd'; ?>;">★</span>
-                                                            <?php endfor; ?>
-                                                        </div>
-                                                        <small><?php
-                                                                $created = strtotime($review['created_at']);
-                                                                $now = time();
-                                                                $diff = $now - $created;
+                                                <div class="review-header">
+                                                    <div class="review-author-image">
+                                                        <?php if ($review['has_gravatar']): ?>
+                                                            <img src="https://www.gravatar.com/avatar/<?php echo htmlspecialchars($review['profile_image']); ?>?s=32" width="32" height="32" alt="User Avatar">
+                                                        <?php endif; ?>
+                                                    </div>
+                                                    <div>
+                                                        <p class="review-username"><?php echo htmlspecialchars($review['username']); ?></p>
+                                                        <div class="review-meta">
+                                                            <div class="star-rating">
+                                                                <?php for ($i = 1; $i <= 5; $i++): ?>
+                                                                    <span style="color: <?php echo $i <= $review['rating'] ? '#ffd700' : '#ddd'; ?>;">★</span>
+                                                                <?php endfor; ?>
+                                                            </div>
+                                                            <small><?php
+                                                                    $created = strtotime($review['created_at']);
+                                                                    $now = time();
+                                                                    $diff = $now - $created;
 
-                                                                if ($diff < 60) {
-                                                                    echo "just now";
-                                                                } elseif ($diff < 3600) {
-                                                                    $mins = floor($diff / 60);
-                                                                    echo $mins . " minute" . ($mins > 1 ? "s" : "") . " ago";
-                                                                } elseif ($diff < 86400) {
-                                                                    $hours = floor($diff / 3600);
-                                                                    echo $hours . " hour" . ($hours > 1 ? "s" : "") . " ago";
-                                                                } elseif ($diff < 604800) {
-                                                                    $days = floor($diff / 86400);
-                                                                    echo $days . " day" . ($days > 1 ? "s" : "") . " ago";
-                                                                } elseif ($diff < 2592000) {
-                                                                    $weeks = floor($diff / 604800);
-                                                                    echo $weeks . " week" . ($weeks > 1 ? "s" : "") . " ago";
-                                                                } else {
-                                                                    echo date('M j, Y', $created);
-                                                                }
-                                                                ?></small>
+                                                                    if ($diff < 60) {
+                                                                        echo "just now";
+                                                                    } elseif ($diff < 3600) {
+                                                                        $mins = floor($diff / 60);
+                                                                        echo $mins . " minute" . ($mins > 1 ? "s" : "") . " ago";
+                                                                    } elseif ($diff < 86400) {
+                                                                        $hours = floor($diff / 3600);
+                                                                        echo $hours . " hour" . ($hours > 1 ? "s" : "") . " ago";
+                                                                    } elseif ($diff < 604800) {
+                                                                        $days = floor($diff / 86400);
+                                                                        echo $days . " day" . ($days > 1 ? "s" : "") . " ago";
+                                                                    } elseif ($diff < 2592000) {
+                                                                        $weeks = floor($diff / 604800);
+                                                                        echo $weeks . " week" . ($weeks > 1 ? "s" : "") . " ago";
+                                                                    } else {
+                                                                        echo date('M j, Y', $created);
+                                                                    }
+                                                                    ?></small>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <p class="review-comment"><?php echo nl2br(htmlspecialchars($review['comment_text'])); ?></p>

@@ -77,7 +77,6 @@
 
 .recipe-details p {
     color: var(--secondary-text-color);
-    margin-bottom: 1rem !important;
 }
 
 .recipe-header {
@@ -323,6 +322,18 @@
 
 .review:last-child {
     border-bottom: none;
+}
+
+.review-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.review-author-image img {
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .review-username {
