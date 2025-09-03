@@ -5,6 +5,7 @@
     * The page also handles user interactions, such as submitting reviews and saving recipes. 
 */
 require_once 'be-logic/db.php';
+require_once 'be-logic/fetch_user_profile.php';
 if (!isset($_SESSION)) {
     session_start();
 }
@@ -19,7 +20,7 @@ $recipe_id = (int)$_GET['id'];
 // Fetch recipe details with user information
 try {
     $stmt = $pdo->prepare("
-        SELECT r.*, u.username
+        SELECT r.*, u.username, u.profile_image
         FROM recipes r 
         LEFT JOIN users u ON r.user_id = u.username 
         WHERE r.id = ?
@@ -33,6 +34,9 @@ try {
     }
 
     $recipe['total_time_min'] = (int)$recipe['prep_time_min'] + (int)$recipe['cook_time_min'];
+
+    // Check if recipe author has a valid Gravatar
+    $recipe['has_gravatar'] = !empty($recipe['profile_image']) && checkGravatarExists(email_hash: $recipe['profile_image']);
 
     // Fetch ingredients
     $stmt = $pdo->prepare("SELECT * FROM ingredients WHERE recipe_id = ?");
@@ -111,7 +115,6 @@ include_once 'assets/includes/header.php'; //load header
                     <div class="recipe-header">
                         <h1><?php echo htmlspecialchars($recipe['title']); ?></h1>
                         <p class="recipe-description"><?php echo nl2br(htmlspecialchars($recipe['description'])); ?></p>
-                        <p>Recipe by <?php echo htmlspecialchars($recipe['username']); ?></p>
                         <div class="recipe-meta">
                             <div onclick="openTab('tab-reviews', 'tab-header-reviews')">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#facc15" stroke="#facc15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -139,6 +142,12 @@ include_once 'assets/includes/header.php'; //load header
                                     <span class="badge badge-hard">Hard</span>
                                 <?php endif; ?>
                             </div>
+                        </div>
+                        <div class="recipe-author">
+                            <?php if ($recipe['has_gravatar']): ?>
+                                <img src="https://www.gravatar.com/avatar/<?php echo htmlspecialchars($recipe['profile_image']); ?>?s=32" alt="Profile Image" width="32" height="32" class="recipe-author-image">
+                            <?php endif; ?>
+                            <p>Recipe by <?php echo htmlspecialchars($recipe['username']); ?></p>
                         </div>
                     </div>
                     <div>
