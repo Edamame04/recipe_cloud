@@ -120,9 +120,9 @@ function registerUser($pdo): void{
     $gravatarHash = md5(strtolower(trim($email)));
 
     // Insert user into the database
-    $stmt = $pdo->prepare("INSERT INTO users (username, password_hash, profile_image) VALUES (?, ?, ?)");
+    $stmt = $pdo->prepare("INSERT INTO users (username, email, password_hash, profile_image) VALUES (?, ?, ?, ?)");
     try {
-        if ($stmt->execute([$username, $hashedPassword, $gravatarHash])) { // If insert is successful
+        if ($stmt->execute([$username, $email, $hashedPassword, $gravatarHash])) { // If insert is successful
             // Clear any previous errors from session
             if (isset($_SESSION['errors'])) unset($_SESSION['errors']);
             $_SESSION['username'] = $username; // Set username in session
