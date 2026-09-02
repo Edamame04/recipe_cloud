@@ -1,46 +1,5 @@
-# Ignore uploaded files
-uploads/
-uploads/*
-uploads/**/*
-
-# Keep the uploads directory structure but ignore contents
-!uploads/
-!uploads/recipes/
-uploads/recipes/*
-# Keep standard recipe images
-!uploads/recipes/standard/
-!uploads/recipes/standard/*
-
 # Ignore system files
 .DS_Store
-Thumbs.db
-
-# Ignore IDE files
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Ignore temporary files
-*.tmp
-*.temp
-*~
-
-# Ignore log files
-*.log
-error.log
-access.log
-
-# Ignore database backups
-*.sql
-*.db
-*.sqlite
 
 # Ignore environment files
 .env
-.env.local
-.env.production
-config.local.php
-
-# Ignore database configuration
-be-logic/db_config.php
