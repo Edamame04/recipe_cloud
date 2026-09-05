@@ -8,7 +8,7 @@
 
 <h1>Recipe Cloud</h1>
 
-**A self-hosted recipe manager for your own kitchen — with households, AI-assisted import, and read-only public links for anyone you want to share a recipe with.**
+**A self-hosted recipe manager for your kitchen – with households, AI-assisted import and colaboration with friends and family.**
 
 <!-- TODO: once there's a CI workflow, Docker image, and a hosted demo, add badges for them here, e.g.:
 <a href="#"><img alt="Demo" src="https://img.shields.io/badge/Demo-try-111827?style=for-the-badge" /></a>
@@ -32,7 +32,8 @@
 
 <div align="center">
 
-[Features](#features) · [Tech stack](#tech-stack) · [Architecture](docs/system-architecture.md) · [Get started](#get-started) · [License](#license)
+[Features](#features) · [Get started](#get-started) · [Tech stack](#tech-stack) · [Docs](docs/system-architecture.md) · [License](#license--contribution) · [Contributing](#license--contribution)
+<!-- TODO: Update according to the latest changes-->
 
 </div>
 
@@ -50,7 +51,7 @@ Recipe Cloud is self-hosted and account-based: almost everything requires loggin
 **With an account**
 - Everything else: manage your personal recipe library, join or create households, share recipes with specific users or households, generate public share links, use AI import/enhancement, plan meals, build shopping lists, use cooking mode, and so on
 
-<details open>
+<details>
 <summary><b>See all features</b></summary>
 
 <br />
@@ -137,6 +138,21 @@ Recipe Cloud is self-hosted and account-based: almost everything requires loggin
 
 <br />
 
+## Get started
+
+<!-- TODO: Recipe Cloud is still in the planning stage — no runnable build yet.
+Once there's a Docker image and a docker-compose.yml, replace this section with
+real install steps, e.g.:
+
+```bash
+docker compose up -d
+```
+-->
+
+Recipe Cloud is currently in the planning/design phase — there's no installable release yet. Check back here once an image is published.
+
+<br />
+
 ## Tech stack
 
 <div align="center">
@@ -153,33 +169,23 @@ Recipe Cloud is self-hosted and account-based: almost everything requires loggin
 
 </div>
 
-Backend on NestJS with a PostgreSQL + Prisma database, Redis for caching/sessions/background jobs, and MinIO (S3-compatible) for recipe images. Real-time collaboration over WebSockets. Web frontend on Next.js; a native SwiftUI iOS app talks to the same REST API. See [docs/system-architecture.md](docs/system-architecture.md) for the full breakdown and scaling plan.
+Backend on NestJS with a PostgreSQL + Prisma database, Redis for caching/sessions/background jobs, and MinIO (S3-compatible) for recipe images. Real-time collaboration over WebSockets. Web frontend on Next.js; a native SwiftUI iOS app talks to the same REST API. See [docs/system-architecture.md](docs/system-architecture.md) for the full breakdown.
 
 <br />
 
-## Get started
-
-<!-- TODO: Recipe Cloud is still in the planning stage — no runnable build yet.
-Once there's a Docker image and a docker-compose.yml, replace this section with
-real install steps, e.g.:
-
-```bash
-docker compose up -d
-```
--->
-
-Recipe Cloud is currently in the planning/design phase — there's no installable release yet. Check back here once an image is published.
-
-<br />
-
-## License
+## License & Contribution
 
 Recipe Cloud is licensed under the [GNU GPLv3](LICENSE).
 
+See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines. If you want to contribute, please read the guidelines first and then open an issue or pull request.
+
+<br />
+<br />
 <br />
 
 <div align="center">
 
-#novibecode
+Happy Cooking! 👨‍🍳👩‍🍳
+<p style="color: gray; font-size: smaller; font-style: italic; transform: translate(0, -1.3em);">#novibecode #selfhosted</p>
 
 </div>
