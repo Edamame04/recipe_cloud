@@ -56,7 +56,7 @@
 
 <table>
 <tr>
-<td colspan="2" valign="top">
+<td width="50%" valign="top">
 
 #### <img src="docs/assets/icons/key.svg" width="18" height="18" align="absmiddle" /> Access levels
 
@@ -66,11 +66,9 @@ Recipe Cloud is self-hosted and account-based: almost everything requires loggin
 - **With an account** — everything else: manage your personal recipe library, join or create households, share recipes with specific users or households, generate public share links, use AI import/enhancement, plan meals, build shopping lists, use cooking mode, and so on
 
 </td>
-</tr>
-<tr>
 <td width="50%" valign="top">
 
-#### <img src="docs/assets/icons/chef-hat.svg" width="18" height="18" align="absmiddle" /> Recipes (planned)
+#### <img src="docs/assets/icons/chef-hat.svg" width="18" height="18" align="absmiddle" /> Recipes 
 
 - Create, edit, duplicate, archive, and delete recipes
 - Organize recipes with tags, categories, cuisines, and favorites
@@ -78,7 +76,12 @@ Recipe Cloud is self-hosted and account-based: almost everything requires loggin
 - Add ingredients and steps, including images, videos, and notes
 - Import recipes automatically from websites that publish structured recipe data (schema.org/Recipe)
 
-#### <img src="docs/assets/icons/utensils.svg" width="18" height="18" align="absmiddle" /> Cooking (planned)
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+#### <img src="docs/assets/icons/utensils.svg" width="18" height="18" align="absmiddle" /> Cooking
 
 - Add an image or short video to every recipe step
 - Use a distraction-free step-by-step cooking mode
@@ -90,14 +93,19 @@ Recipe Cloud is self-hosted and account-based: almost everything requires loggin
 </td>
 <td width="50%" valign="top">
 
-#### <img src="docs/assets/icons/calendar-days.svg" width="18" height="18" align="absmiddle" /> Optional planning (planned)
+#### <img src="docs/assets/icons/calendar-days.svg" width="18" height="18" align="absmiddle" /> Optional planning
 
 - Build weekly meal plans from saved recipes
 - Generate and share shopping lists automatically
 - Combine ingredients from multiple recipes and group them by store section
 - Export shopping lists to other apps
 
-#### <img src="docs/assets/icons/sparkles.svg" width="18" height="18" align="absmiddle" /> AI (planned)
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+#### <img src="docs/assets/icons/sparkles.svg" width="18" height="18" align="absmiddle" /> AI
 
 - Import recipes from websites, Instagram/TikTok/YouTube videos, or unstructured/pasted text using AI parsing
 - Use AI to enhance existing recipes: steps, tags, nutritional analysis, and so on
@@ -106,11 +114,9 @@ Recipe Cloud is self-hosted and account-based: almost everything requires loggin
 - iOS app directly appearing in the share sheet to import recipes from other apps
 
 </td>
-</tr>
-<tr>
 <td width="50%" valign="top">
 
-#### <img src="docs/assets/icons/users.svg" width="18" height="18" align="absmiddle" /> Collaboration & sharing (planned)
+#### <img src="docs/assets/icons/users.svg" width="18" height="18" align="absmiddle" /> Collaboration & sharing
 
 - Every recipe belongs to a personal library by default
 - Create or join one or more households; household members share access to that household's recipe collection
@@ -119,7 +125,12 @@ Recipe Cloud is self-hosted and account-based: almost everything requires loggin
 - Generate a read-only public link for a single recipe so anyone can view it without an account — there is no public, browsable recipe library
 - See who created or last updated a recipe
 
-#### <img src="docs/assets/icons/smartphone.svg" width="18" height="18" align="absmiddle" /> Access & personalization (planned)
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+#### <img src="docs/assets/icons/smartphone.svg" width="18" height="18" align="absmiddle" /> Access & personalization
 
 - Search recipes by title, ingredient, tag, or dietary preference
 - Use the app on mobile, tablet, and desktop
@@ -132,7 +143,7 @@ Recipe Cloud is self-hosted and account-based: almost everything requires loggin
 </td>
 <td width="50%" valign="top">
 
-#### <img src="docs/assets/icons/settings.svg" width="18" height="18" align="absmiddle" /> Accounts & administration (planned)
+#### <img src="docs/assets/icons/settings.svg" width="18" height="18" align="absmiddle" /> Accounts & administration
 
 - Sign up with email & password/passkey (or OAuth)
 - Instance admin chooses whether registration is open to anyone or invite/admin-only
