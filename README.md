@@ -1,13 +1,44 @@
-# <img src="docs/assets/logo.svg" alt="logo" width="30"/> Recipe Cloud
+<div align="center">
 
-**Recipe Cloud** is a self-hosted collaborative recipe app for managing and sharing recipes with friends and family.
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/logo-light.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="docs/assets/logo.svg" />
+  <img src="docs/assets/logo.svg" alt="Recipe Cloud" height="72" />
+</picture>
 
+<h1>Recipe Cloud</h1>
 
-<!--Add fancy readme content here-->
+**A self-hosted recipe manager for your own kitchen — with households, AI-assisted import, and read-only public links for anyone you want to share a recipe with.**
+
+<!-- TODO: once there's a CI workflow, Docker image, and a hosted demo, add badges for them here, e.g.:
+<a href="#"><img alt="Demo" src="https://img.shields.io/badge/Demo-try-111827?style=for-the-badge" /></a>
+<img alt="CI" src="https://img.shields.io/github/actions/workflow/status/nikmtl/recipe-cloud/test.yml?branch=main&style=for-the-badge" />
+<a href="#"><img alt="Docker" src="https://img.shields.io/badge/Docker-ready-2496ED?style=for-the-badge" /></a>
+-->
+
+<a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/nikmtl/recipe-cloud?style=flat-square&color=6B7280" /></a>
+<a href="https://github.com/nikmtl/recipe-cloud/releases"><img alt="Latest Release" src="https://img.shields.io/github/v/release/nikmtl/recipe-cloud?include_prereleases&style=flat-square&color=6B7280" /></a>
+<a href="https://github.com/nikmtl/recipe-cloud"><img alt="Stars" src="https://img.shields.io/github/stars/nikmtl/recipe-cloud?style=flat-square&color=6B7280" /></a>
+
+</div>
+
+<!-- TODO: hero screenshot/GIF once there's a UI to show, e.g.:
+<div align="center">
+  <img src="docs/assets/hero.webp" alt="Recipe Cloud, a tour of the app" width="100%" />
+</div>
+-->
+
+<br />
+
+<div align="center">
+
+[Features](#features) · [Tech stack](#tech-stack) · [Architecture](docs/system-architecture.md) · [Get started](#get-started) · [License](#license)
+
+</div>
+
+---
 
 ## Features
-<details>
-<summary>Full feature list</summary>
 
 ### Access levels
 
@@ -19,9 +50,16 @@ Recipe Cloud is self-hosted and account-based: almost everything requires loggin
 **With an account**
 - Everything else: manage your personal recipe library, join or create households, share recipes with specific users or households, generate public share links, use AI import/enhancement, plan meals, build shopping lists, use cooking mode, and so on
 
+<details open>
+<summary><b>See all features</b></summary>
 
+<br />
 
-### 🍲 Recipes (planned)
+<table>
+<tr>
+<td width="50%" valign="top">
+
+#### 🍲 Recipes (planned)
 
 - Create, edit, duplicate, archive, and delete recipes
 - Organize recipes with tags, categories, cuisines, and favorites
@@ -29,7 +67,7 @@ Recipe Cloud is self-hosted and account-based: almost everything requires loggin
 - Add ingredients and steps, including images, videos, and notes
 - Import recipes automatically from websites that publish structured recipe data (schema.org/Recipe)
 
-### 🍽️ Cooking (planned)
+#### 🍽️ Cooking (planned)
 
 - Add an image or short video to every recipe step
 - Use a distraction-free step-by-step cooking mode
@@ -38,21 +76,30 @@ Recipe Cloud is self-hosted and account-based: almost everything requires loggin
 - Convert units between metric, imperial, volume, and weight
 - Support timers directly inside recipe steps
 
-### 📅 Optional Planning (planned)
+</td>
+<td width="50%" valign="top">
+
+#### 📅 Optional planning (planned)
+
 - Build weekly meal plans from saved recipes
 - Generate and share shopping lists automatically
 - Combine ingredients from multiple recipes and group them by store section
 - Export shopping lists to other apps
 
-### 🤖 AI (planned)
+#### 🤖 AI (planned)
 
-- Import recipes from a websites, Instagram/TikTok/Yourube videos, or unstructured/pasted text using AI parsing
+- Import recipes from websites, Instagram/TikTok/YouTube videos, or unstructured/pasted text using AI parsing
 - Use AI to enhance existing recipes: steps, tags, nutritional analysis, and so on
 - Automatically link ingredients to the steps that use them
 - Support multiple AI providers, configurable instance-wide
-- iOS App dirketly appering in the share sheet to import recipes from other apps
+- iOS app directly appearing in the share sheet to import recipes from other apps
 
-### 👥 Collaboration & sharing (planned)
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+#### 👥 Collaboration & sharing (planned)
 
 - Every recipe belongs to a personal library by default
 - Create or join one or more households; household members share access to that household's recipe collection
@@ -61,24 +108,78 @@ Recipe Cloud is self-hosted and account-based: almost everything requires loggin
 - Generate a read-only public link for a single recipe so anyone can view it without an account — there is no public, browsable recipe library
 - See who created or last updated a recipe
 
-### 📱 Access & personalization (planned)
+#### 📱 Access & personalization (planned)
 
 - Search recipes by title, ingredient, tag, or dietary preference
 - Use the app on mobile, tablet, and desktop
 - Work offline and synchronize changes when back online
-- Export recipes as PDF (Print), Markdown, or JSON
+- Export recipes as PDF (print), Markdown, or JSON
 - Generate a full cookbook PDF with all recipes in a household or personal library
 - Import and export a complete recipe library for backups and other apps
 - Support multiple languages
 
-### ⚙️ Accounts & administration (planned)
+</td>
+<td width="50%" valign="top">
+
+#### ⚙️ Accounts & administration (planned)
 
 - Sign up with email & password/passkey (or OAuth)
 - Instance admin chooses whether registration is open to anyone or invite/admin-only
 - Reset password via email
 - Admin panel: manage user accounts (invite, disable, delete), oversee households and revoke public links, configure instance-wide settings (registration mode, AI provider/keys, default language)
-- optional 2FA and passkey login, admin-togglable per instance
+- Optional 2FA and passkey login, admin-togglable per instance
+
+</td>
+</tr>
+</table>
 
 </details>
 
+<br />
+
+## Tech stack
+
+<div align="center">
+
+![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=flat-square&logo=nestjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
+![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=flat-square&logo=prisma&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white)
+![MinIO](https://img.shields.io/badge/MinIO-C72E49?style=flat-square&logo=minio&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=next.js&logoColor=white)
+![Swift](https://img.shields.io/badge/Swift-F05138?style=flat-square&logo=swift&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+
+</div>
+
+Backend on NestJS with a PostgreSQL + Prisma database, Redis for caching/sessions/background jobs, and MinIO (S3-compatible) for recipe images. Real-time collaboration over WebSockets. Web frontend on Next.js; a native SwiftUI iOS app talks to the same REST API. See [docs/system-architecture.md](docs/system-architecture.md) for the full breakdown and scaling plan.
+
+<br />
+
+## Get started
+
+<!-- TODO: Recipe Cloud is still in the planning stage — no runnable build yet.
+Once there's a Docker image and a docker-compose.yml, replace this section with
+real install steps, e.g.:
+
+```bash
+docker compose up -d
+```
+-->
+
+Recipe Cloud is currently in the planning/design phase — there's no installable release yet. Check back here once an image is published.
+
+<br />
+
+## License
+
+Recipe Cloud is licensed under the [GNU GPLv3](LICENSE).
+
+<br />
+
+<div align="center">
+
 #novibecode
+
+</div>
