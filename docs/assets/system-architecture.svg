@@ -1,0 +1,151 @@
+<svg viewBox="0 0 1200 640" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M 0 0.5 L 9 5 L 0 9.5 z" fill="#8a8f98"/>
+    </marker>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M 0 0.5 L 9 5 L 0 9.5 z" fill="#9c27b0"/>
+    </marker>
+    <filter id="cardShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#1a1a2e" flood-opacity="0.14"/>
+    </filter>
+
+    <!-- Icon symbols, 24x24 viewBox, stroke-based -->
+    <g id="icon-browser" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2.5" y="4" width="19" height="16" rx="2.2"/>
+      <line x1="2.5" y1="8.8" x2="21.5" y2="8.8"/>
+      <circle cx="5.6" cy="6.4" r="0.55" fill="currentColor" stroke="none"/>
+      <circle cx="8" cy="6.4" r="0.55" fill="currentColor" stroke="none"/>
+      <circle cx="10.4" cy="6.4" r="0.55" fill="currentColor" stroke="none"/>
+    </g>
+    <g id="icon-mobile" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="7" y="2" width="10" height="20" rx="2.3"/>
+      <line x1="10.4" y1="18.2" x2="13.6" y2="18.2"/>
+    </g>
+    <g id="icon-chip" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="6" y="6" width="12" height="12" rx="2"/>
+      <rect x="9.3" y="9.3" width="5.4" height="5.4" rx="1"/>
+      <line x1="12" y1="1.6" x2="12" y2="6"/>
+      <line x1="12" y1="18" x2="12" y2="22.4"/>
+      <line x1="1.6" y1="12" x2="6" y2="12"/>
+      <line x1="18" y1="12" x2="22.4" y2="12"/>
+    </g>
+    <g id="icon-database" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <ellipse cx="12" cy="5.2" rx="8" ry="3"/>
+      <path d="M4 5.2v13.6c0 1.66 3.58 3 8 3s8-1.34 8-3V5.2"/>
+      <path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/>
+    </g>
+    <g id="icon-bolt" stroke="none" fill="currentColor">
+      <path d="M13.2 1.6 3.6 13.8h6.1l-1.1 8.6 9.8-13.2h-6.3l1.1-7.6z"/>
+    </g>
+    <g id="icon-box" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 7.8 12 3l9 4.8-9 4.8-9-4.8z"/>
+      <path d="M3 7.8v8.4L12 21l9-4.8V7.8"/>
+      <path d="M12 12.6V21"/>
+    </g>
+    <g id="icon-sync" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4.5 12a7.5 7.5 0 0 1 12.8-5.3"/>
+      <path d="M19.5 12a7.5 7.5 0 0 1-12.8 5.3"/>
+      <path d="M17.3 2.9v3.9h-3.9"/>
+      <path d="M6.7 21.1v-3.9h3.9"/>
+    </g>
+    <g id="icon-stack" stroke="currentColor" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2.5" y="8" width="10" height="10" rx="2"/>
+      <rect x="11.5" y="2.5" width="10" height="10" rx="2"/>
+    </g>
+  </defs>
+
+  <rect width="1200" height="640" fill="#f6f7fb"/>
+
+  <!-- WebSocket note -->
+  <rect x="415" y="64" width="260" height="54" rx="12" fill="#f3e8fd" stroke="#9c27b0" stroke-width="1.3" filter="url(#cardShadow)"/>
+  <circle cx="440" cy="91" r="13" fill="#ffffff"/>
+  <use href="#icon-sync" x="0" y="0" width="24" height="24" color="#6a1b9a" transform="translate(440,91) scale(0.72) translate(-12,-12)"/>
+  <text x="460" y="88" font-size="12" font-weight="700" fill="#6a1b9a">WebSocket Rooms</text>
+  <text x="460" y="103" font-size="10" fill="#6a1b9a">live collaboration per recipe</text>
+  <line x1="545" y1="118" x2="545" y2="195" stroke="#9c27b0" stroke-width="1.3" stroke-dasharray="4,4" marker-end="url(#arrow-purple)"/>
+
+  <!-- Docker Compose box (backend + data layer only) -->
+  <rect x="360" y="150" width="700" height="430" rx="14" fill="#ffffff" stroke="#c2c5cc" stroke-width="1.4" stroke-dasharray="7,5"/>
+  <use href="#icon-stack" x="0" y="0" width="16" height="16" color="#9aa0a8" transform="translate(384,164) scale(0.62) translate(-12,-12)"/>
+  <text x="406" y="176" font-size="13" font-weight="700" fill="#7a7f88">Docker Compose (Single Host)</text>
+
+  <!-- Web Frontend -->
+  <rect x="50" y="210" width="250" height="105" rx="14" fill="#ffffff" stroke="#4285f4" stroke-width="1.5" filter="url(#cardShadow)"/>
+  <circle cx="80" cy="240" r="16" fill="#e8f0fe"/>
+  <use href="#icon-browser" x="0" y="0" width="24" height="24" color="#1a56db" transform="translate(80,240) scale(0.78) translate(-12,-12)"/>
+  <text x="106" y="237" font-size="15.5" font-weight="700" fill="#1a56db">Web Frontend</text>
+  <text x="106" y="257" font-size="12" fill="#333">Next.js + TypeScript</text>
+  <line x1="66" y1="270" x2="284" y2="270" stroke="#e3e9f7" stroke-width="1.2"/>
+  <text x="66" y="290" font-size="10.5" fill="#777" font-style="italic">Server-rendered, live UI</text>
+
+  <!-- iOS App -->
+  <rect x="50" y="365" width="250" height="105" rx="14" fill="#ffffff" stroke="#4285f4" stroke-width="1.5" filter="url(#cardShadow)"/>
+  <circle cx="80" cy="395" r="16" fill="#e8f0fe"/>
+  <use href="#icon-mobile" x="0" y="0" width="24" height="24" color="#1a56db" transform="translate(80,395) scale(0.78) translate(-12,-12)"/>
+  <text x="106" y="392" font-size="15.5" font-weight="700" fill="#1a56db">iOS App</text>
+  <text x="106" y="412" font-size="12" fill="#333">Swift + SwiftUI</text>
+  <line x1="66" y1="425" x2="284" y2="425" stroke="#e3e9f7" stroke-width="1.2"/>
+  <text x="66" y="445" font-size="10.5" fill="#777" font-style="italic">Native client, shared API</text>
+
+  <!-- Arrows from clients to backend -->
+  <path d="M300,262 C 350,262 350,230 400,230" fill="none" stroke="#8a8f98" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <path d="M300,417 C 350,417 350,380 400,380" fill="none" stroke="#8a8f98" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <!-- Backend -->
+  <rect x="400" y="195" width="290" height="220" rx="14" fill="#ffffff" stroke="#34a853" stroke-width="1.5" filter="url(#cardShadow)"/>
+  <circle cx="430" cy="225" r="17" fill="#e6f4ea"/>
+  <use href="#icon-chip" x="0" y="0" width="24" height="24" color="#1e7e34" transform="translate(430,225) scale(0.82) translate(-12,-12)"/>
+  <text x="458" y="222" font-size="17" font-weight="700" fill="#1e7e34">NestJS Backend</text>
+  <text x="458" y="241" font-size="11.5" fill="#333">REST API · WebSocket Gateway</text>
+  <line x1="418" y1="256" x2="672" y2="256" stroke="#dcf0e2" stroke-width="1.2"/>
+
+  <circle cx="424" cy="273" r="2.2" fill="#34a853"/>
+  <text x="432" y="277" font-size="11.5" fill="#333">Auth: Passport.js + JWT (OAuth)</text>
+  <circle cx="424" cy="294" r="2.2" fill="#34a853"/>
+  <text x="432" y="298" font-size="11.5" fill="#333">Roles: Owner / Editor / Viewer</text>
+  <circle cx="424" cy="315" r="2.2" fill="#34a853"/>
+  <text x="432" y="319" font-size="11.5" fill="#333">Modules: Recipes · Users · Uploads</text>
+  <circle cx="424" cy="336" r="2.2" fill="#34a853"/>
+  <text x="432" y="340" font-size="11.5" fill="#333">Message queue consumer</text>
+
+  <line x1="418" y1="353" x2="672" y2="353" stroke="#dcf0e2" stroke-width="1.2"/>
+  <text x="545" y="371" text-anchor="middle" font-size="11" fill="#688a6e" font-style="italic">stateless design</text>
+  <text x="545" y="388" text-anchor="middle" font-size="11" fill="#688a6e" font-style="italic">→ ready for horizontal scaling</text>
+
+  <!-- Arrows from backend to data stores -->
+  <path d="M690,230 C 733,230 733,250 780,250" fill="none" stroke="#8a8f98" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <path d="M690,305 C 738,305 738,375 780,375" fill="none" stroke="#8a8f98" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <path d="M690,380 C 745,380 745,500 780,500" fill="none" stroke="#8a8f98" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <!-- Data / infra layer -->
+  <rect x="780" y="195" width="250" height="110" rx="14" fill="#ffffff" stroke="#f9ab00" stroke-width="1.5" filter="url(#cardShadow)"/>
+  <circle cx="810" cy="228" r="16" fill="#fef7e0"/>
+  <use href="#icon-database" x="0" y="0" width="24" height="24" color="#a15c00" transform="translate(810,228) scale(0.78) translate(-12,-12)"/>
+  <text x="836" y="225" font-size="15" font-weight="700" fill="#a15c00">PostgreSQL</text>
+  <text x="836" y="245" font-size="11.5" fill="#333">+ Prisma ORM</text>
+  <line x1="796" y1="258" x2="1014" y2="258" stroke="#fcecc0" stroke-width="1.2"/>
+  <text x="810" y="277" font-size="10.5" fill="#777">Recipes, Users,</text>
+  <text x="810" y="293" font-size="10.5" fill="#777">permissions table</text>
+
+  <rect x="780" y="320" width="250" height="110" rx="14" fill="#ffffff" stroke="#ea4335" stroke-width="1.5" filter="url(#cardShadow)"/>
+  <circle cx="810" cy="353" r="16" fill="#fce8e6"/>
+  <use href="#icon-bolt" x="0" y="0" width="24" height="24" color="#a50e0e" transform="translate(810,353) scale(0.72) translate(-12,-12)"/>
+  <text x="836" y="350" font-size="15" font-weight="700" fill="#a50e0e">Redis</text>
+  <text x="836" y="370" font-size="11" fill="#333">In-memory data store</text>
+  <line x1="796" y1="383" x2="1014" y2="383" stroke="#fadad6" stroke-width="1.2"/>
+  <text x="810" y="401" font-size="10.5" fill="#777">Cache · Sessions · Rate limiting</text>
+  <text x="810" y="417" font-size="10.5" fill="#777">Message queue</text>
+
+  <rect x="780" y="445" width="250" height="110" rx="14" fill="#ffffff" stroke="#7986cb" stroke-width="1.5" filter="url(#cardShadow)"/>
+  <circle cx="810" cy="478" r="16" fill="#e8eaf6"/>
+  <use href="#icon-box" x="0" y="0" width="24" height="24" color="#3949ab" transform="translate(810,478) scale(0.78) translate(-12,-12)"/>
+  <text x="836" y="475" font-size="15" font-weight="700" fill="#3949ab">MinIO</text>
+  <text x="836" y="495" font-size="11" fill="#333">S3-compatible storage</text>
+  <line x1="796" y1="508" x2="1014" y2="508" stroke="#e1e3f5" stroke-width="1.2"/>
+  <text x="810" y="527" font-size="10.5" fill="#777">Object storage</text>
+  <text x="810" y="543" font-size="10.5" fill="#777">(recipe images)</text>
+
+  <line x1="450" y1="595" x2="750" y2="595" stroke="#e2e3e8" stroke-width="1"/>
+  <text x="600" y="612" text-anchor="middle" font-size="11" fill="#9aa0a8">All connections go through a unified REST/WebSocket API</text>
+</svg>
