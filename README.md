@@ -10,15 +10,14 @@
 
 **A self-hosted recipe manager for your kitchen – with households, AI-assisted import and colaboration with friends and family.**
 
+<a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/nikmtl/recipe-cloud?style=flat-square&color=6B7280" /></a>
+<a href="https://github.com/nikmtl/recipe-cloud/releases"><img alt="Latest Release" src="https://img.shields.io/github/v/release/nikmtl/recipe-cloud?include_prereleases&style=flat-square&color=6B7280" /></a>
+<a href="https://github.com/nikmtl/recipe-cloud"><img alt="Stars" src="https://img.shields.io/github/stars/nikmtl/recipe-cloud?style=flat-square&color=6B7280" /></a>
 <!-- TODO: once there's a CI workflow, Docker image, and a hosted demo, add badges for them here, e.g.:
 <a href="#"><img alt="Demo" src="https://img.shields.io/badge/Demo-try-111827?style=for-the-badge" /></a>
 <img alt="CI" src="https://img.shields.io/github/actions/workflow/status/nikmtl/recipe-cloud/test.yml?branch=main&style=for-the-badge" />
 <a href="#"><img alt="Docker" src="https://img.shields.io/badge/Docker-ready-2496ED?style=for-the-badge" /></a>
 -->
-
-<a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/nikmtl/recipe-cloud?style=flat-square&color=6B7280" /></a>
-<a href="https://github.com/nikmtl/recipe-cloud/releases"><img alt="Latest Release" src="https://img.shields.io/github/v/release/nikmtl/recipe-cloud?include_prereleases&style=flat-square&color=6B7280" /></a>
-<a href="https://github.com/nikmtl/recipe-cloud"><img alt="Stars" src="https://img.shields.io/github/stars/nikmtl/recipe-cloud?style=flat-square&color=6B7280" /></a>
 
 </div>
 
@@ -37,19 +36,18 @@
 
 </div>
 
----
 
 ## Features
 
-### Access levels
+<div align="center">
 
-Recipe Cloud is self-hosted and account-based: almost everything requires logging in. The one exception is a public, read-only share link an account holder can generate for a single recipe.
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/tiles-light.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="docs/assets/tiles.svg" />
+  <img src="docs/assets/tiles.svg" alt="Recipes, Share &amp; Plan, AI Import" width="100%" />
+</picture>
 
-**Without an account**
-- Open a recipe via a public share link and view it (ingredients, steps, images) — read only, no account prompts, no interaction
-
-**With an account**
-- Everything else: manage your personal recipe library, join or create households, share recipes with specific users or households, generate public share links, use AI import/enhancement, plan meals, build shopping lists, use cooking mode, and so on
+</div>
 
 <details>
 <summary><b>See all features</b></summary>
@@ -58,9 +56,21 @@ Recipe Cloud is self-hosted and account-based: almost everything requires loggin
 
 <table>
 <tr>
+<td colspan="2" valign="top">
+
+#### <img src="docs/assets/icons/key.svg" width="18" height="18" align="absmiddle" /> Access levels
+
+Recipe Cloud is self-hosted and account-based: almost everything requires logging in. The one exception is a public, read-only share link an account holder can generate for a single recipe.
+
+- **Without an account** — open a recipe via a public share link and view it (ingredients, steps, images): read only, no account prompts, no interaction
+- **With an account** — everything else: manage your personal recipe library, join or create households, share recipes with specific users or households, generate public share links, use AI import/enhancement, plan meals, build shopping lists, use cooking mode, and so on
+
+</td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 
-#### 🍲 Recipes (planned)
+#### <img src="docs/assets/icons/chef-hat.svg" width="18" height="18" align="absmiddle" /> Recipes (planned)
 
 - Create, edit, duplicate, archive, and delete recipes
 - Organize recipes with tags, categories, cuisines, and favorites
@@ -68,7 +78,7 @@ Recipe Cloud is self-hosted and account-based: almost everything requires loggin
 - Add ingredients and steps, including images, videos, and notes
 - Import recipes automatically from websites that publish structured recipe data (schema.org/Recipe)
 
-#### 🍽️ Cooking (planned)
+#### <img src="docs/assets/icons/utensils.svg" width="18" height="18" align="absmiddle" /> Cooking (planned)
 
 - Add an image or short video to every recipe step
 - Use a distraction-free step-by-step cooking mode
@@ -80,14 +90,14 @@ Recipe Cloud is self-hosted and account-based: almost everything requires loggin
 </td>
 <td width="50%" valign="top">
 
-#### 📅 Optional planning (planned)
+#### <img src="docs/assets/icons/calendar-days.svg" width="18" height="18" align="absmiddle" /> Optional planning (planned)
 
 - Build weekly meal plans from saved recipes
 - Generate and share shopping lists automatically
 - Combine ingredients from multiple recipes and group them by store section
 - Export shopping lists to other apps
 
-#### 🤖 AI (planned)
+#### <img src="docs/assets/icons/sparkles.svg" width="18" height="18" align="absmiddle" /> AI (planned)
 
 - Import recipes from websites, Instagram/TikTok/YouTube videos, or unstructured/pasted text using AI parsing
 - Use AI to enhance existing recipes: steps, tags, nutritional analysis, and so on
@@ -100,7 +110,7 @@ Recipe Cloud is self-hosted and account-based: almost everything requires loggin
 <tr>
 <td width="50%" valign="top">
 
-#### 👥 Collaboration & sharing (planned)
+#### <img src="docs/assets/icons/users.svg" width="18" height="18" align="absmiddle" /> Collaboration & sharing (planned)
 
 - Every recipe belongs to a personal library by default
 - Create or join one or more households; household members share access to that household's recipe collection
@@ -109,7 +119,7 @@ Recipe Cloud is self-hosted and account-based: almost everything requires loggin
 - Generate a read-only public link for a single recipe so anyone can view it without an account — there is no public, browsable recipe library
 - See who created or last updated a recipe
 
-#### 📱 Access & personalization (planned)
+#### <img src="docs/assets/icons/smartphone.svg" width="18" height="18" align="absmiddle" /> Access & personalization (planned)
 
 - Search recipes by title, ingredient, tag, or dietary preference
 - Use the app on mobile, tablet, and desktop
@@ -122,7 +132,7 @@ Recipe Cloud is self-hosted and account-based: almost everything requires loggin
 </td>
 <td width="50%" valign="top">
 
-#### ⚙️ Accounts & administration (planned)
+#### <img src="docs/assets/icons/settings.svg" width="18" height="18" align="absmiddle" /> Accounts & administration (planned)
 
 - Sign up with email & password/passkey (or OAuth)
 - Instance admin chooses whether registration is open to anyone or invite/admin-only
@@ -135,6 +145,8 @@ Recipe Cloud is self-hosted and account-based: almost everything requires loggin
 </table>
 
 </details>
+
+<!-- TODO: Add more screenshots or demo videos here -->
 
 <br />
 
