@@ -1,304 +1,214 @@
-# <img src="https://github.com/Edamame04/recipe_cloud/blob/main/assets/img/logo.svg" alt="logo" width="30"/> Recipe Cloud 
+<div align="center">
 
-**Recipe Cloud** is a web application for managing and sharing recipes. Users can create, save, search, and rate recipes – all centrally in one place. The application is based on PHP, HTML, CSS, JavaScript, and MySQL.
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/logo-light.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="docs/assets/logo.svg" />
+  <img src="docs/assets/logo.svg" alt="Recipe Cloud" height="72" />
+</picture>
 
-The project serves to gain practical experience with **PHP** and **SQL** and deepen understanding of server-side web development with database integration. The application was deliberately developed without the use of frameworks or libraries. Only pure **HTML**, **CSS**, **JavaScript**, and **PHP** are used to deepen the fundamental concepts and techniques of web development.
+<h1>Recipe Cloud</h1>
 
----
+**A self-hosted recipe manager for your kitchen – with households, AI-assisted import and colaboration with friends and family.**
 
-## 🌟 Features
-
-### Public Access:
-- Homepage with recipe suggestions
-- Recipe overview with filter and search functionality
-- Detailed recipe display (including ingredients, preparation, images)
-
-### For Registered Users:
-- User profile and stats
-- Create, edit and delete recipes
-- Rate and comment on other people's recipes
-- Favorites list to remember recipes
-
----
-
-## 🧰 Tech Stack
-
-- **Frontend:** HTML, CSS, JavaScript (AJAX within recipe search)
-- **Backend:** PHP 8+ (Form processing, Sessions)
-- **Database:** MySQL
-
----
-
-## 🗃️ Database Schema
-
-**users:**  
-`first_name`, `last_name`, `username*(PK)*`, `email`, `password_hash`, `bio`, `profile_image`, `created_at`
-
-**recipes:**  
-`id *(PK)*`, `user_id *(FK)*`, `title`, `description`, `prep_time_min`, `cook_time_min`, `difficulty`, `servings`, `category`, `image_path`
-
-**instructions:**
-`id *(PK)*`, `step_number`, `instruction`, `recipe_id *(FK)*`
-
-**ingredients:**
-`id *(PK)*`, `amount`, `unit`, `ingredient`, `recipe_id *(FK)*`
-
-**ratings:**  
-`id *(PK)*`, `user_id *(FK)*`, `recipe_id *(FK)*`, `rating`, `comment_text`, `created_at`
-
-**favorites:**
-`id *(PK)*`, `user_id *(FK)*`, `recipe_id *(FK)*`
-
-<!--
-## 🗄️ Entity-Relationship Model
-
-![Entity-Relationship Diagram](https://github.com/Edamame04/recipe_cloud/blob/main/docs/erm.png)
-
-The diagram illustrates the relationships between the database entities including users, recipes, ingredients, instructions, ratings, and favorites.
+<a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/nikmtl/recipe-cloud?style=flat-square&color=6B7280" /></a>
+<a href="https://github.com/nikmtl/recipe-cloud/releases"><img alt="Latest Release" src="https://img.shields.io/github/v/release/nikmtl/recipe-cloud?include_prereleases&style=flat-square&color=6B7280" /></a>
+<a href="https://github.com/nikmtl/recipe-cloud"><img alt="Stars" src="https://img.shields.io/github/stars/nikmtl/recipe-cloud?style=flat-square&color=6B7280" /></a>
+<!-- TODO: once there's a CI workflow, Docker image, and a hosted demo, add badges for them here, e.g.:
+<a href="#"><img alt="Demo" src="https://img.shields.io/badge/Demo-try-111827?style=for-the-badge" /></a>
+<img alt="CI" src="https://img.shields.io/github/actions/workflow/status/nikmtl/recipe-cloud/test.yml?branch=main&style=for-the-badge" />
+<a href="#"><img alt="Docker" src="https://img.shields.io/badge/Docker-ready-2496ED?style=for-the-badge" /></a>
 -->
----
 
-## 📁 Current Project Structure
+</div>
 
+<!-- TODO: hero screenshot/GIF once there's a UI to show, e.g.:
+<div align="center">
+  <img src="docs/assets/hero.webp" alt="Recipe Cloud, a tour of the app" width="100%" />
+</div>
+-->
+
+<br />
+
+<div align="center">
+
+[Features](#features) · [Get started](#get-started) · [Tech stack](#tech-stack) · [Docs](docs/system-architecture.md) · [License](#license--contribution) · [Contributing](#license--contribution)
+<!-- TODO: Update according to the latest changes-->
+
+</div>
+
+
+## Features
+
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/tiles-light.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="docs/assets/tiles.svg" />
+  <img src="docs/assets/tiles.svg" alt="Recipes, Share &amp; Plan, AI Import" width="100%" />
+</picture>
+
+</div>
+
+<details>
+<summary><b>See all features</b></summary>
+
+<br />
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+#### <img src="docs/assets/icons/key.svg" width="18" height="18" align="absmiddle" /> Access levels
+
+Recipe Cloud is self-hosted and account-based: almost everything requires logging in. The one exception is a public, read-only share link an account holder can generate for a single recipe.
+
+- **Without an account** — open a recipe via a public share link and view it (ingredients, steps, images): read only, no account prompts, no interaction
+- **With an account** — everything else: manage your personal recipe library, join or create households, share recipes with specific users or households, generate public share links, use AI import/enhancement, plan meals, build shopping lists, use cooking mode, and so on
+
+</td>
+<td width="50%" valign="top">
+
+#### <img src="docs/assets/icons/chef-hat.svg" width="18" height="18" align="absmiddle" /> Recipes 
+
+- Create, edit, duplicate, archive, and delete recipes
+- Organize recipes with tags, categories, cuisines, and favorites
+- Add preparation time, cooking time, servings, difficulty, cuisine, and nutritional information
+- Add ingredients and steps, including images, videos, and notes
+- Import recipes automatically from websites that publish structured recipe data (schema.org/Recipe)
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+#### <img src="docs/assets/icons/utensils.svg" width="18" height="18" align="absmiddle" /> Cooking
+
+- Add an image or short video to every recipe step
+- Use a distraction-free step-by-step cooking mode
+- Keep the screen awake while cooking
+- Scale ingredient quantities automatically by serving size
+- Convert units between metric, imperial, volume, and weight
+- Support timers directly inside recipe steps
+
+</td>
+<td width="50%" valign="top">
+
+#### <img src="docs/assets/icons/calendar-days.svg" width="18" height="18" align="absmiddle" /> Optional planning
+
+- Build weekly meal plans from saved recipes
+- Generate and share shopping lists automatically
+- Combine ingredients from multiple recipes and group them by store section
+- Export shopping lists to other apps
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+#### <img src="docs/assets/icons/sparkles.svg" width="18" height="18" align="absmiddle" /> AI
+
+- Import recipes from websites, Instagram/TikTok/YouTube videos, or unstructured/pasted text using AI parsing
+- Use AI to enhance existing recipes: steps, tags, nutritional analysis, and so on
+- Automatically link ingredients to the steps that use them
+- Support multiple AI providers, configurable instance-wide
+- iOS app directly appearing in the share sheet to import recipes from other apps
+
+</td>
+<td width="50%" valign="top">
+
+#### <img src="docs/assets/icons/users.svg" width="18" height="18" align="absmiddle" /> Collaboration & sharing
+
+- Every recipe belongs to a personal library by default
+- Create or join one or more households; household members share access to that household's recipe collection
+- Share an individual recipe directly with another specific logged-in user, without a shared household
+- Set permissions for viewing, editing, and managing recipes within a household
+- Generate a read-only public link for a single recipe so anyone can view it without an account — there is no public, browsable recipe library
+- See who created or last updated a recipe
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+#### <img src="docs/assets/icons/smartphone.svg" width="18" height="18" align="absmiddle" /> Access & personalization
+
+- Search recipes by title, ingredient, tag, or dietary preference
+- Use the app on mobile, tablet, and desktop
+- Work offline and synchronize changes when back online
+- Export recipes as PDF (print), Markdown, or JSON
+- Generate a full cookbook PDF with all recipes in a household or personal library
+- Import and export a complete recipe library for backups and other apps
+- Support multiple languages
+
+</td>
+<td width="50%" valign="top">
+
+#### <img src="docs/assets/icons/settings.svg" width="18" height="18" align="absmiddle" /> Accounts & administration
+
+- Sign up with email & password/passkey (or OAuth)
+- Instance admin chooses whether registration is open to anyone or invite/admin-only
+- Reset password via email
+- Admin panel: manage user accounts (invite, disable, delete), oversee households and revoke public links, configure instance-wide settings (registration mode, AI provider/keys, default language)
+- Optional 2FA and passkey login, admin-togglable per instance
+
+</td>
+</tr>
+</table>
+
+</details>
+
+<!-- TODO: Add more screenshots or demo videos here -->
+
+<br />
+
+## Get started
+
+<!-- TODO: Recipe Cloud is still in the planning stage — no runnable build yet.
+Once there's a Docker image and a docker-compose.yml, replace this section with
+real install steps, e.g.:
+
+```bash
+docker compose up -d
 ```
-recipe_cloud/
-│
-├── index.php              # Homepage
-├── login.php              # User login page
-├── register.php           # User registration page
-├── profile.php            # User profile page
-├── recipes.php            # Recipe overview and search page
-├── recipe.php             # Individual recipe display
-├── upload.php             # Recipe upload page
-├── edit_recipe.php        # Recipe editing page
-├── settings.php           # User settings page
-│
-├── assets/
-│   ├── css/               # Stylesheets
-│   │   ├── styles.css
-│   │   ├── auth.css
-│   │   ├── recipe.css
-│   │   ├── profile.css
-│   │   └── ...
-│   ├── fe-logic/          # Frontend JavaScript
-│   │   ├── auth.js
-│   │   ├── profile.js
-│   │   ├── recipe-page.js
-│   │   ├── upload/
-│   │   │   ├── upload.js
-│   │   │   └── ...
-│   │   └── ...
-│   ├── img/               # Images and logos
-│   │   ├── favicon.png
-│   │   ├── favicon.svg
-│   │   ├── logo.svg
-│   │   └── logo_with_bg.svg
-│   └── includes/          # Reusable PHP components
-│       ├── header.php
-│       ├── footer.php
-│       └── recipe_card.php
-│
-├── be-logic/                 # Backend PHP logic
-│   ├── db.php                # Database connection
-│   ├── db_config.php         # Database configuration
-│   ├── db_config.php.template # Database config template
-│   ├── auth.php              # Authentication handling 
-│   ├── upload.php            # Recipe upload processing
-│   ├── edit_recipe.php       # Recipe editing logic
-│   ├── save_recipe.php       # Recipe saving
-│   ├── delete_recipe.php     # Recipe deletion
-│   ├── submit_review.php     # Review submission
-│   ├── delete_review.php     # Review deletion
-│   ├── get_user_profile.php  # User profile loading
-│   ├── update_account.php    # User profile editing
-│   ├── update_password.php   # Password update handling
-│   ├── delete_account.php    # Account and data deletion
-│   ├── export_user_data.php  # User data export
-│   ├── load_more_recipes.php # AJAX dynamic recipe loading
-│   ├── load_standard_data.php # Load demo recipes
-│   └── protected_page.php    # Protected route handler
-│
-├── docs/                     # Documentation
-│   ├── erm.drawio            # Entity Relationship Model (editable)
-│   └── erm.png               # Entity Relationship Diagram (image)
-│
-└── README.md
-```
+-->
 
----
+Recipe Cloud is currently in the planning/design phase — there's no installable release yet. Check back here once an image is published.
 
-## 🛠️ Development
+<br />
 
-### Database Structure
-The application uses a well-structured MySQL database with proper foreign key relationships and constraints. All tables are automatically created when the application first runs.
+## Tech stack
 
-### Security Features
-- Password hashing using PHP's `password_hash()`
-- SQL injection prevention using PDO prepared statements
-- Session-based authentication
-- Input validation and sanitization
-- Protected routes for authenticated users
+<div align="center">
 
-### Code Organization
-- **Frontend**: Vanilla JavaScript for dynamic interactions
-- **Backend**: Pure PHP with no frameworks for educational purposes
-- **Database**: MySQL with PDO for secure database operations
----
+![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=flat-square&logo=nestjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
+![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=flat-square&logo=prisma&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white)
+![MinIO](https://img.shields.io/badge/MinIO-C72E49?style=flat-square&logo=minio&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=next.js&logoColor=white)
+![Swift](https://img.shields.io/badge/Swift-F05138?style=flat-square&logo=swift&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
 
-## 🔧 Local Setup with Docker
-> **Note:** This project is hosted online so users worldwide can share recipes and culinary experiences with each other. For testing you can still set Recipe Cloud up on your local device using Docker.
+</div>
 
-### 🚥 Requirements
+Backend on NestJS with a PostgreSQL + Prisma database, Redis for caching/sessions/background jobs, and MinIO (S3-compatible) for recipe images. Real-time collaboration over WebSockets. Web frontend on Next.js; a native SwiftUI iOS app talks to the same REST API. See [docs/system-architecture.md](docs/system-architecture.md) for the full breakdown.
 
-- **Docker:** Latest version with Docker Compose
-- **Browser:** Modern web browser with JavaScript enabled
+<br />
 
-### 📁 Project Structure
+## License & Contribution
 
-Create the following project structure:
-```
-recipe_cloud/
-├── docker-compose.yml
-├── nginx/
-│   └── default.conf
-├── php/
-│   ├── Dockerfile
-│   └── php.ini
-├── src/                ← your cloned Git repo
-└── uploads/recipes/    ← target for images (local & server same)
-```
+Recipe Cloud is licensed under the [GNU GPLv3](LICENSE).
 
-### 🐳 Setup Steps
+See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines. If you want to contribute, please read the guidelines first and then open an issue or pull request.
 
-1. **Create project directory and clone:**
-   ```bash
-   mkdir recipe_cloud
-   cd recipe_cloud
-   git clone https://github.com/Edamame04/recipe_cloud src
-   ```
+<br />
+<br />
+<br />
 
-2. **Create Docker configuration files:**
+<div align="center">
 
-   **Create `docker-compose.yml`:**
-   ```yaml
-   services:
-     web:
-       image: nginx:alpine
-       container_name: recipe_web
-       ports:
-         - "8083:80"
-       volumes:
-         - ./src:/var/www/html
-         - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-         - ./uploads:/var/www/html/uploads
-       depends_on:
-         - php
-       restart: unless-stopped
+Happy Cooking! 👨‍🍳👩‍🍳
+<p style="color: gray; font-size: smaller; font-style: italic; transform: translate(0, -1.3em);">#novibecode #selfhosted</p>
 
-     php:
-       build:
-         context: ./php
-       container_name: recipe_php
-       volumes:
-         - ./src:/var/www/html
-         - ./uploads:/var/www/html/uploads
-       restart: unless-stopped
-
-     db:
-       image: mariadb
-       container_name: recipe_db
-       environment:
-         MYSQL_ROOT_PASSWORD: changeme
-         MYSQL_DATABASE: recipe_cloud
-         MYSQL_USER: recipe_user
-         MYSQL_PASSWORD: changemetoo
-       volumes:
-         - ./db:/var/lib/mysql
-       restart: unless-stopped
-   ```
-
-   **Create `nginx/default.conf`:**
-   ```nginx
-   server {
-       listen 80;
-       server_name localhost;
-
-       root /var/www/html;
-       index index.php index.html;
-
-       location / {
-           try_files $uri $uri/ $uri.php?$args;
-       }
-
-       location ~ \.php$ {
-           include fastcgi_params;
-           fastcgi_pass php:9000;
-           fastcgi_index index.php;
-           fastcgi_param SCRIPT_FILENAME /var/www/html$fastcgi_script_name;
-       }
-
-       location ~ /\.ht {
-           deny all;
-       }
-   }
-   ```
-
-   **Create `php/Dockerfile`:**
-   ```dockerfile
-   FROM php:8.2-fpm
-
-   RUN docker-php-ext-install pdo pdo_mysql
-
-   COPY php.ini /usr/local/etc/php/conf.d/custom.ini
-   RUN touch /var/log/php_errors.log && chmod 777 /var/log/php_errors.log
-   ```
-
-   **Create `php/php.ini`:**
-   ```ini
-   display_errors = On
-   display_startup_errors = On
-   log_errors = On
-   error_reporting = E_ALL
-   error_log = /var/log/php_errors.log
-   ```
-
-   **Create `uploads/recipes/` directory:**
-   ```bash
-   mkdir -p uploads/recipes
-   ```
-
-3. **Configure database connection:**
-   - Copy `src/be-logic/db_config.php.template` to `src/be-logic/db_config.php`
-   - Update the database credentials in `src/be-logic/db_config.php`:
-   ```php
-   return [
-       'host' => 'db',
-       'database' => 'recipe_cloud',
-       'username' => 'recipe_user',
-       'password' => 'changemetoo',
-       'charset' => 'utf8mb4'
-   ];
-   ```
-
-4. **Start containers:**
-   ```bash
-   docker compose up -d --build
-   ```
-
-5. **Open application:**
-   ```
-   http://localhost:8083
-   ```
-
-6. **Load dummy recipes (optional):**
-   ```
-   Visit: http://localhost:8083/be-logic/load_standard_data
-   ```
----
-
-## 📧 Contact
-
-For questions or suggestions regarding this project, please open an issue on GitHub.
-
-**Happy Cooking! 👨‍🍳👩‍🍳**
-
+</div>
